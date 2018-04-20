@@ -1,13 +1,14 @@
 var express = require ('express');
 var mongoose = require('mongoose');
 var bodyParser  = require('body-parser');
+const PORT = process.env.PORT || 3000
 
 // TODO fix the MongoDB connect
 // if you want to activate connection to MongoDB
 // remove the following comment 
 // MongoDD
 //mongoose.connect('mongodb://localhost/timesheet');
-mongoose.connect('mongodb://worktimeuser:yrM9iE9zMOBKILdKzjKE@ds151259.mlab.com:51259/worktime');
+//mongoose.connect('mongodb://user:password@ds151259.mlab.com:51259/worktime');
 
 //Express
 var app = express();
@@ -19,5 +20,6 @@ app.use(bodyParser.json());
 app.use('/api', require('./routes/api'));
 
 // Start server
-app.listen (3000);
-console.log('server is listening on port 3000');
+//app.listen (3000);
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+//console.log('server is listening on port 3000');
